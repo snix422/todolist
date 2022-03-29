@@ -1,0 +1,95 @@
+body
+{
+    background-color:darkmagenta;
+}
+
+
+
+.container
+{
+    background-color:azure;
+    height:500px;
+    width:500px;
+    position:relative;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    border-radius: 5%;
+}
+
+h2
+{
+    display:inline-block;
+    padding-left:20%;
+    padding-top:20px;
+    color:black;
+    font-size:35px;
+}
+
+h3
+{
+    display:inline-block;
+    padding-left:20%;
+    padding-top:20px;
+    color:black;
+    font-size:20px;
+    margin-bottom:50px;
+}
+
+hr
+{
+    width:90%;
+}
+
+p
+{
+    display:inline-block;
+    margin-left:10px;
+    font-family:arial;
+    font-size:15px;
+    width:70px;
+}
+
+button
+{
+    margin-left:55%;
+    border-radius: 45%;
+    background-color:white;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:13px;
+    padding-right:13px;
+    
+}
+
+textarea
+{
+    position:absolute;
+    bottom:10%;
+    left:10%;
+    width:60%;
+    border-radius:2em;
+    padding-left:13px;
+    padding-top:12px;
+    
+    padding-right:13px;
+
+    
+}
+
+.add1
+{
+    position:absolute;
+    bottom:10%;
+    right:10%;
+    padding-top:15px;
+    padding-left:10px;
+    padding-bottom:15px;
+}
+
+i
+{
+    margin-left:30px;
+    display:block;
+}
+
