@@ -1,0 +1,119 @@
+body {
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: azure;
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
+    border-radius: 5%;
+}
+
+.header {
+    display: flex;
+    gap: 20px;
+}
+
+.header div {
+    margin-left: 60px;
+    margin-top: 30px;
+    font-size: 30px;
+    font-family: arial;
+}
+
+.sekcja1 {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.sekcja1 div {
+    max-width: 200px;
+    overflow: hidden;
+    font-family: arial;
+    font-size: 20px;
+}
+
+.sekcja1 button {
+    border-radius: 45%;
+    width: 100px;
+    font-family: arial;
+}
+
+.sekcja2 {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.sekcja2 div {
+    max-width: 200px;
+    overflow: hidden;
+}
+
+.sekcja3 {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.sekcja3 div {
+    max-width: 200px;
+    overflow: hidden;
+}
+
+.sekcja4 {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.placeholder {
+    display: flex;
+    justify-content: space-around;
+}
+
+.placeholder textarea {
+    margin-top: 40px;
+    width: 200px;
+    height: 40px;
+    max-width: 250px;
+    max-height: 60px;
+}
+
+.placeholder button {
+    border-radius: 45%;
+    width: 50px;
+    font-family: arial;
+    height: 40px;
+    margin-top: 40px;
+}
+
+.button-add {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.button-add button {
+    border-radius: 45%;
+    width: 100px;
+    font-family: arial;
+}
+
+hr {
+    width: 90%;
+}
+
+.h1-js {
+    margin-top: -450px;
+    margin-left: -250px;
+}
