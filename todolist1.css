@@ -45,37 +45,6 @@ body {
     font-family: arial;
 }
 
-.sekcja2 {
-    display: flex;
-    margin-top: 30px;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.sekcja2 div {
-    max-width: 200px;
-    overflow: hidden;
-}
-
-.sekcja3 {
-    display: flex;
-    margin-top: 30px;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.sekcja3 div {
-    max-width: 200px;
-    overflow: hidden;
-}
-
-.sekcja4 {
-    display: flex;
-    margin-top: 30px;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
 .placeholder {
     display: flex;
     justify-content: space-around;
