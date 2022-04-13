@@ -7,9 +7,8 @@ body {
 
 .container {
     background-color: azure;
-    height: 400px;
-    width: 400px;
-    overflow: hidden;
+    min-height: 400px;
+    min-width: 400px;
     border-radius: 5%;
 }
 
@@ -33,8 +32,8 @@ body {
 }
 
 .sekcja1 div {
-    max-width: 200px;
-    overflow: hidden;
+    margin-left: 20px;
+    margin-right: 20px;
     font-family: arial;
     font-size: 20px;
 }
@@ -80,9 +79,4 @@ body {
 
 hr {
     width: 90%;
-}
-
-.h1-js {
-    margin-top: -450px;
-    margin-left: -250px;
 }
