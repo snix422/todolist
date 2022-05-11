@@ -139,7 +139,6 @@
 
     <script>
         (function() {
-
             const btnAdd = document.querySelector('.btn-add');
             const toDo = document.querySelector('.todo-element');
             const spanAction = document.querySelector('.todo-element--action');
@@ -149,7 +148,6 @@
             const btnEdit = document.createElement('button');
 
             const addContent = () => {
-
                 const div = document.createElement('div');
                 const span = document.createElement('span');
                 const spanButtons = document.createElement('span');
@@ -165,9 +163,6 @@
                 btnDelete.classList.add('btn-delete');
                 btnEdit.classList.add('btn-edit');
 
-
-
-
                 todoList.prepend(div);
                 div.prepend(spanButtons);
                 div.prepend(span);
@@ -175,74 +170,17 @@
                 spanButtons.prepend(btnDelete);
 
                 textarea.value = "";
-
-
-
-
-
-
-
             }
 
             const deleteContent = () => {
                 div.parentNode.removeChild(div);
 
             }
+
             btnAdd.addEventListener('click', addContent);
             btnDelete.addEventListener('click', deleteContent);
 
         })();
-
-        /*const btnAdd = document.querySelector('.btn-add');
-        const toDo = document.querySelector('.todo-element');
-        const spanAction = document.querySelector('.todo-element--action');
-        const todoList = document.querySelector('.todo-list');
-        const textarea = document.querySelector('textarea');
-        const btnDelete = document.createElement('button');
-        const btnEdit = document.createElement('button');
-
-        const addContent = () => {
-
-            const div = document.createElement('div');
-            const span = document.createElement('span');
-            const spanButtons = document.createElement('span');
-            const btnDelete = document.createElement('button');
-            const btnEdit = document.createElement('button');
-
-            span.textContent = textarea.value;
-            btnDelete.textContent = "delete";
-            btnEdit.textContent = "edit";
-
-            div.classList.add('todo-element');
-            spanButtons.classList.add('todo-element--action');
-            btnDelete.classList.add('btn-delete');
-            btnEdit.classList.add('btn-edit');
-
-
-
-
-            todoList.prepend(div);
-            div.prepend(spanButtons);
-            div.prepend(span);
-            spanButtons.prepend(btnEdit);
-            spanButtons.prepend(btnDelete);
-
-            textarea.value = "";
-
-
-
-
-
-
-
-        }
-
-        const deleteContent = () => {
-            div.parentNode.removeChild(div);
-
-        }
-        btnAdd.addEventListener('click', addContent);
-        btnDelete.addEventListener('click', deleteContent);*/
     </script>
 </body>
 
