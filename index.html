@@ -5,11 +5,11 @@
         display: flex;
         flex-direction: column;
     }
-    
+
     .box-children {
         border: 1px dashed white;
     }
-    
+
     .todo-element {
         border: 1px dashed pink;
         display: flex;
@@ -17,74 +17,79 @@
         padding: 1rem;
         flex-wrap: wrap;
     }
-    
+
     .todo-element--action {
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
     }
-    
+
     .box-children-menu--action {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
     }
-    
+
     .box-children-menu--action ul {
         list-style: none;
         display: flex;
         gap: 40px;
     }
-    
+
     .todo-element--add {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        ;
         padding: 1rem;
     }
-    
+
     .todo-element--add textarea {
         max-width: 200px;
         max-height: 100px;
     }
-    
+
     .todo-element--add button {
         max-width: 40px;
         max-height: 40px;
-        ;
     }
-    
-    @media screen and (max-width:1024px) {
+
+    @media screen and (max-width: 1024px) {
         .box-main {
             flex-direction: row;
         }
+
         .box-children-content {
             display: flex;
             flex-grow: 1;
         }
+
         .todo-list {
             display: flex;
             flex-grow: 1;
             flex-direction: column;
         }
+
         .box-children-menu {
             display: flex;
             flex-direction: row;
         }
+
         .box-children-menu--action {
             display: flex;
             flex-direction: column;
             gap: 30px;
         }
+
         .box-children-menu--action ul {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
         .box-children-menu--action ul li {
             border: 2px solid red;
         }
+
         .box-children-menu--action ul li a {
             color: white;
         }
@@ -100,45 +105,62 @@
     <h1>dupa</h1>
     <div class="box-main">
         <div class="box-children box-children-menu">
-
-
-            <div class="box-children-menu--action">
-                <ul>
-                    <li><a>asddasd</a></li>
-                    <li><a>dfdsfdsfddsfsdfdsfsdfsdfsdfsdfsdfsdfsfds</a></li>
-                    <li><a>ddfdsfdsfds</a></li>
-                    <li><a>sdfdsdsfsdfsdfdsfsdfdsfdsfdsfsdfsdf</a></li>
-                    <ul>
-            </div>
-
+            <ul>
+                <li><a href="" title="">asddasd</a></li>
+                <li><a href="" title="">dfdsfdsfddsfsdfdsfsdfsdfsdfsdfsdfsdfsfds</a></li>
+                <li><a href="" title="">ddfdsfdsfds</a></li>
+                <li><a href="" title="">sdfdsdsfsdfsdfdsfsdfdsfdsfdsfsdfsdf</a></li>
+            </ul>
         </div>
         <div class="box-children box-children-content">
-            <div class="todo-list">
+            <div id="todo-list" class="todo-list">
                 <!-- TODO to ma byc puste i wyswietlone za pomoca JS -->
                 <div class="todo-element">
-                    <span>left</span>
+                    <span>{{fist task}}</span>
                     <span class="todo-element--action">
-                        <button>delete</button>
-                        <button>edit</button>
+                        <button (click)="deleteTodoElement()">delete</button>
+                        <button (click)="editTodoElement()">edit</button>
                     </span>
                 </div>
+
                 <div class="todo-element">
-                    <span>left</span>
+                    <span>{{second task}}</span>
                     <span class="todo-element--action">
-                        <button>delete</button>
-                        <button>edit</button>
+                        <button (click)="deleteTodoElement()">delete</button>
+                        <button (click)="editTodoElement()">edit</button>
                     </span>
                 </div>
-                <div class="todo-element--add">
-                    <textarea class="input" placeholder="Add to do list..."></textarea>
-                    <button class="btn-add">Add</button>
+
+                <div class="todo-element">
+                    <span>{{third tast}}</span>
+                    <span class="todo-element--action">
+                        <button (click)="deleteTodoElement()">delete</button>
+                        <button (click)="editTodoElement()">edit</button>
+                    </span>
                 </div>
+            </div>
+            <div class="todo-element--add">
+                <textarea class="input" placeholder="Add to do list...">
+second task 123123</textarea>
+                <button (click)="addTodoElement()" class="btn-add">Add</button>
             </div>
         </div>
     </div>
 
     <script>
-        (function() {
+        (function () {
+            const todoListArray = ['fist task', 'second task 123123', 'third tast'];
+
+            // to jest do zakodowania
+            const addTodoElement = () => { };
+            const editTodoElement = (index) => { };
+            const deleteTodoElement = (index) => { };
+            const renderElementList = (index) => { };
+
+            // to tez
+            renderElementList();
+
+            // to trzeba poprzenosic / uporzadkowac
             const btnAdd = document.querySelector('.btn-add');
             const toDo = document.querySelector('.todo-element');
             const spanAction = document.querySelector('.todo-element--action');
@@ -155,8 +177,8 @@
                 const btnEdit = document.createElement('button');
 
                 span.textContent = textarea.value;
-                btnDelete.textContent = "delete";
-                btnEdit.textContent = "edit";
+                btnDelete.textContent = 'delete';
+                btnEdit.textContent = 'edit';
 
                 div.classList.add('todo-element');
                 spanButtons.classList.add('todo-element--action');
@@ -169,17 +191,12 @@
                 spanButtons.prepend(btnEdit);
                 spanButtons.prepend(btnDelete);
 
-                textarea.value = "";
-            }
+                textarea.value = '';
+            };
 
             const deleteContent = () => {
                 div.parentNode.removeChild(div);
-
-            }
-
-            btnAdd.addEventListener('click', addContent);
-            btnDelete.addEventListener('click', deleteContent);
-
+            };
         })();
     </script>
 </body>
