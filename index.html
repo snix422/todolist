@@ -1,204 +1,164 @@
 <html>
-<style>
+  <style>
     .box-main {
-        border: 1px solid red;
-        display: flex;
-        flex-direction: column;
+      border: 1px solid red;
+      display: flex;
+      flex-direction: column;
     }
 
     .box-children {
-        border: 1px dashed white;
+      border: 1px dashed white;
     }
 
     .todo-element {
-        border: 1px dashed pink;
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem;
-        flex-wrap: wrap;
+      border: 1px dashed pink;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      flex-wrap: wrap;
     }
 
     .todo-element--action {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .box-children-menu--action {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+    .box-children-menu {
+      display: flex;
+      flex-direction: row;
     }
 
-    .box-children-menu--action ul {
-        list-style: none;
-        display: flex;
-        gap: 40px;
+    .box-children-menu ul {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      list-style: none;
+      display: flex;
+    }
+
+    .box-children-menu ul li {
+      padding: 1rem;
+      background: lightgray;
+      font-weight: 200;
+      color: black;
+      text-decoration: none;
     }
 
     .todo-element--add {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem;
-    }
-
-    .todo-element--add textarea {
-        max-width: 200px;
-        max-height: 100px;
-    }
-
-    .todo-element--add button {
-        max-width: 40px;
-        max-height: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
     }
 
     @media screen and (max-width: 1024px) {
-        .box-main {
-            flex-direction: row;
-        }
+      .box-main {
+        flex-direction: column;
+      }
 
-        .box-children-content {
-            display: flex;
-            flex-grow: 1;
-        }
+      .box-children-content {
+        display: flex;
+        flex-grow: 1;
+      }
 
-        .todo-list {
-            display: flex;
-            flex-grow: 1;
-            flex-direction: column;
-        }
+      .todo-list {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+      }
 
-        .box-children-menu {
-            display: flex;
-            flex-direction: row;
-        }
-
-        .box-children-menu--action {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .box-children-menu--action ul {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .box-children-menu--action ul li {
-            border: 2px solid red;
-        }
-
-        .box-children-menu--action ul li a {
-            color: white;
-        }
+      .box-children-menu ul {
+        display: flex;
+        flex-direction: column;
+      }
     }
-</style>
+  </style>
 
-<head>
+  <head>
     <!-- TODO do ogarniecia -->
     <!-- <link rel="stylesheet" href="styles.css"> -->
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>dupa</h1>
     <div class="box-main">
-        <div class="box-children box-children-menu">
-            <ul>
-                <li><a href="" title="">asddasd</a></li>
-                <li><a href="" title="">dfdsfdsfddsfsdfdsfsdfsdfsdfsdfsdfsdfsfds</a></li>
-                <li><a href="" title="">ddfdsfdsfds</a></li>
-                <li><a href="" title="">sdfdsdsfsdfsdfdsfsdfdsfdsfdsfsdfsdf</a></li>
-            </ul>
+      <div class="box-children box-children-menu">
+        <ul>
+          <li><a href="" title="">Menu Item1</a></li>
+          <li>
+            <a href="" title="">Menu Item2</a>
+          </li>
+          <li><a href="" title="">Menu Item3</a></li>
+          <li><a href="" title="">Menu Item4</a></li>
+        </ul>
+      </div>
+      <div class="box-children box-children-content">
+        <div id="todo-list" class="todo-list">
+          <!-- TODO to ma byc puste i wyswietlone za pomoca JS -->
         </div>
-        <div class="box-children box-children-content">
-            <div id="todo-list" class="todo-list">
-                <!-- TODO to ma byc puste i wyswietlone za pomoca JS -->
-                <div class="todo-element">
-                    <span>{{fist task}}</span>
-                    <span class="todo-element--action">
-                        <button (click)="deleteTodoElement()">delete</button>
-                        <button (click)="editTodoElement()">edit</button>
-                    </span>
-                </div>
-
-                <div class="todo-element">
-                    <span>{{second task}}</span>
-                    <span class="todo-element--action">
-                        <button (click)="deleteTodoElement()">delete</button>
-                        <button (click)="editTodoElement()">edit</button>
-                    </span>
-                </div>
-
-                <div class="todo-element">
-                    <span>{{third tast}}</span>
-                    <span class="todo-element--action">
-                        <button (click)="deleteTodoElement()">delete</button>
-                        <button (click)="editTodoElement()">edit</button>
-                    </span>
-                </div>
-            </div>
-            <div class="todo-element--add">
-                <textarea class="input" placeholder="Add to do list...">
-second task 123123</textarea>
-                <button (click)="addTodoElement()" class="btn-add">Add</button>
-            </div>
-        </div>
+      </div>
     </div>
-
+    <div class="todo-element--add">
+      <textarea id="input-field" class="input" placeholder="Add to do list...">
+      </textarea>
+      <button onclick="add()" class="btn-add">Add</button>
+    </div>
     <script>
-        (function () {
-            const todoListArray = ['fist task', 'second task 123123', 'third tast'];
+      //   konfiguracja dla naszej biblioteki
+      const listManagementConfig = () => {
+        return {
+          listElement: document.getElementById('todo-list'),
+          textareaElement: document.getElementById('input-field'),
+        };
+      };
 
-            // to jest do zakodowania
-            const addTodoElement = () => { };
-            const editTodoElement = (index) => { };
-            const deleteTodoElement = (index) => { };
-            const renderElementList = (index) => { };
+      // nasza biblioteka
+      (function ($) {
+        const listOfElement = [];
+        const listElement = listManagementConfig().listElement;
+        const textareaElement = listManagementConfig().textareaElement;
 
-            // to tez
-            renderElementList();
+        const elementNode = (text, index) => `<div class="todo-element">
+            <span>${text}</span>
+            <span class="todo-element--action">
+              <button onclick="remove(${index})">delete</button>
+              <button onclick="edit(${index})">edit</button>
+            </span>
+          </div>`;
 
-            // to trzeba poprzenosic / uporzadkowac
-            const btnAdd = document.querySelector('.btn-add');
-            const toDo = document.querySelector('.todo-element');
-            const spanAction = document.querySelector('.todo-element--action');
-            const todoList = document.querySelector('.todo-list');
-            const textarea = document.querySelector('textarea');
-            const btnDelete = document.createElement('button');
-            const btnEdit = document.createElement('button');
+        add = () => {
+          //   dont allow to push empty text
+          if (textareaElement.value) {
+            listOfElement.push(textareaElement.value);
+          }
 
-            const addContent = () => {
-                const div = document.createElement('div');
-                const span = document.createElement('span');
-                const spanButtons = document.createElement('span');
-                const btnDelete = document.createElement('button');
-                const btnEdit = document.createElement('button');
+          textareaElement.value = '';
+          render();
+        };
 
-                span.textContent = textarea.value;
-                btnDelete.textContent = 'delete';
-                btnEdit.textContent = 'edit';
+        edit = (index) => {
+          // edita zostawiam tobie bo nie pokazales dzialajacego przykladu, cos sie walilo
+          render();
+        };
 
-                div.classList.add('todo-element');
-                spanButtons.classList.add('todo-element--action');
-                btnDelete.classList.add('btn-delete');
-                btnEdit.classList.add('btn-edit');
+        remove = (index) => {
+          listOfElement.splice(index, 1);
+          render();
+        };
 
-                todoList.prepend(div);
-                div.prepend(spanButtons);
-                div.prepend(span);
-                spanButtons.prepend(btnEdit);
-                spanButtons.prepend(btnDelete);
+        render = () => {
+          let renderedNodes = '';
+          //   reset of list
+          listElement.innerHTML = '';
 
-                textarea.value = '';
-            };
+          listOfElement.forEach((text, index) => {
+            renderedNodes += elementNode(text, index);
+          });
 
-            const deleteContent = () => {
-                div.parentNode.removeChild(div);
-            };
-        })();
+          listElement.innerHTML = renderedNodes;
+        };
+      })(listManagementConfig);
     </script>
-</body>
-
+  </body>
 </html>
