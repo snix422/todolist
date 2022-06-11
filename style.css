@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Roboto:ital@1&family=Source+Sans+Pro:wght@600&display=swap');
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vowel-container {
+    background-color: bisque;
+    min-height: 50vh;
+    width: 500px;
+}
+
+.vowel-container_addword {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.vowel-container input {
+    border-radius: 5px;
+    border: 3px solid red;
+    width: 50%;
+    height: 40px;
+    background-color: white;
+    margin-top: 50px;
+}
+
+.vowel-container input:hover {
+    background-color: #EFEFF1;
+}
+
+.vowel-container input:focus {
+    border-color: #1BE2F1;
+}
+
+.vowel-container button {
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    transition: 1s;
+    height: 30px;
+    margin-top: 60px;
+}
+
+.vowel-container button:hover {
+    background-color: white;
+    color: black;
+    border-color: white;
+}
+
+.vowel-score {
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 30px;
+}
+
+.vowel-score_item {
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;
+    padding-left: 30px;
+}
