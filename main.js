@@ -28,22 +28,22 @@ const countVowel = () => {
 
     for (i = 0; i < arr.length; i++) {
 
-        if (arr[i].match('a')) {
+        if (arr[i].toLowerCase().match('a')) {
             sum = sum + 1;
         }
-        if (arr[i].match('e')) {
+        if (arr[i].toLowerCase().match('e')) {
             sum = sum + 1;
         }
-        if (arr[i].match('i')) {
+        if (arr[i].toLowerCase().match('i')) {
             sum = sum + 1;
         }
-        if (arr[i].match('o')) {
+        if (arr[i].toLowerCase().match('o')) {
             sum = sum + 1;
         }
-        if (arr[i].match('u')) {
+        if (arr[i].toLowerCase().match('u')) {
             sum = sum + 1;
         }
-        if (arr[i].match('y')) {
+        if (arr[i].toLowerCase().match('y')) {
             sum = sum + 1;
         }
 
