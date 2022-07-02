@@ -20,42 +20,20 @@ const countVowel = () => {
 
     let str = input.value;
 
-    const arr = str.split('');
-    console.log(arr);
+    const arr = str.toLowerCase().split('');
+    const vowel = ['a', 'e', 'i', 'o', 'u', 'y'];
 
-    let sum = 0;
     word.textContent = input.value;
 
-    for (i = 0; i < arr.length; i++) {
+    const arrReduced = arr.reduce(function(value, item) {
+        if (vowel.includes(item)) {
+            value += 1;
+        }
+        return value;
+    }, 0)
 
-        if (arr[i].toLowerCase().match('a')) {
-            sum = sum + 1;
-        }
-        if (arr[i].toLowerCase().match('e')) {
-            sum = sum + 1;
-        }
-        if (arr[i].toLowerCase().match('i')) {
-            sum = sum + 1;
-        }
-        if (arr[i].toLowerCase().match('o')) {
-            sum = sum + 1;
-        }
-        if (arr[i].toLowerCase().match('u')) {
-            sum = sum + 1;
-        }
-        if (arr[i].toLowerCase().match('y')) {
-            sum = sum + 1;
-        }
-
-        console.log(arr[i]);
-
-    }
-    counterVowel.textContent = `Liczba samogłosek: ${sum}`;
-
+    counterVowel.textContent = `Liczba samogłosek: ${arrReduced}`;
     input.value = "";
-
-
-
 }
 
 btnCountVowel.addEventListener('click', countVowel);
