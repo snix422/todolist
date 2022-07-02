@@ -1,164 +1,32 @@
-<html>
-  <style>
-    .box-main {
-      border: 1px solid red;
-      display: flex;
-      flex-direction: column;
-    }
+<!DOCTYPE html>
+<html lang="pl">
 
-    .box-children {
-      border: 1px dashed white;
-    }
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Witaj, Świecie!</title>
+</head>
 
-    .todo-element {
-      border: 1px dashed pink;
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem;
-      flex-wrap: wrap;
-    }
+<body>
+    <div class="vowel-container">
 
-    .todo-element--action {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .box-children-menu {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .box-children-menu ul {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      list-style: none;
-      display: flex;
-    }
-
-    .box-children-menu ul li {
-      padding: 1rem;
-      background: lightgray;
-      font-weight: 200;
-      color: black;
-      text-decoration: none;
-    }
-
-    .todo-element--add {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-    }
-
-    @media screen and (max-width: 1024px) {
-      .box-main {
-        flex-direction: column;
-      }
-
-      .box-children-content {
-        display: flex;
-        flex-grow: 1;
-      }
-
-      .todo-list {
-        display: flex;
-        flex-grow: 1;
-        flex-direction: column;
-      }
-
-      .box-children-menu ul {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-  </style>
-
-  <head>
-    <!-- TODO do ogarniecia -->
-    <!-- <link rel="stylesheet" href="styles.css"> -->
-  </head>
-
-  <body>
-    <h1>dupa</h1>
-    <div class="box-main">
-      <div class="box-children box-children-menu">
-        <ul>
-          <li><a href="" title="">Menu Item1</a></li>
-          <li>
-            <a href="" title="">Menu Item2</a>
-          </li>
-          <li><a href="" title="">Menu Item3</a></li>
-          <li><a href="" title="">Menu Item4</a></li>
-        </ul>
-      </div>
-      <div class="box-children box-children-content">
-        <div id="todo-list" class="todo-list">
-          <!-- TODO to ma byc puste i wyswietlone za pomoca JS -->
+        <div class="vowel-container_addword">
+            <input type="text" class="contentWord" placeholder="Tutaj wpisz słowo...">
+            <button class="btnCount" onclick="countVowel">Zlicz samogłoski</button>
         </div>
-      </div>
+
+        <div class="vowel-score">
+            <div class="vowel-score_item">
+                <span>Wyraz</span>
+                <span>Liczba samogłosek:</span>
+            </div>
+            <div class="vowel-score_item">
+                <span>Wyraz</span>
+                <span>Liczba samogłosek:</span>
+            </div>
+        </div>
     </div>
-    <div class="todo-element--add">
-      <textarea id="input-field" class="input" placeholder="Add to do list...">
-      </textarea>
-      <button onclick="add()" class="btn-add">Add</button>
-    </div>
-    <script>
-      //   konfiguracja dla naszej biblioteki
-      const listManagementConfig = () => {
-        return {
-          listElement: document.getElementById('todo-list'),
-          textareaElement: document.getElementById('input-field'),
-        };
-      };
+    <script src="main.js"></script>
+</body>
 
-      // nasza biblioteka
-      (function ($) {
-        const listOfElement = [];
-        const listElement = listManagementConfig().listElement;
-        const textareaElement = listManagementConfig().textareaElement;
-
-        const elementNode = (text, index) => `<div class="todo-element">
-            <span>${text}</span>
-            <span class="todo-element--action">
-              <button onclick="remove(${index})">delete</button>
-              <button onclick="edit(${index})">edit</button>
-            </span>
-          </div>`;
-
-        add = () => {
-          //   dont allow to push empty text
-          if (textareaElement.value) {
-            listOfElement.push(textareaElement.value);
-          }
-
-          textareaElement.value = '';
-          render();
-        };
-
-        edit = (index) => {
-          // edita zostawiam tobie bo nie pokazales dzialajacego przykladu, cos sie walilo
-          render();
-        };
-
-        remove = (index) => {
-          listOfElement.splice(index, 1);
-          render();
-        };
-
-        render = () => {
-          let renderedNodes = '';
-          //   reset of list
-          listElement.innerHTML = '';
-
-          listOfElement.forEach((text, index) => {
-            renderedNodes += elementNode(text, index);
-          });
-
-          listElement.innerHTML = renderedNodes;
-        };
-      })(listManagementConfig);
-    </script>
-  </body>
 </html>
